@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Entry
 
 
@@ -35,3 +35,12 @@ def entries_detail(request, entry_id):
 class EntryCreate(CreateView):
     model = Entry
     fields = '__all__'
+
+class EntryUpdate(UpdateView):
+    model = Entry
+    fields = '__all__'
+
+class EntryDelete(DeleteView):
+    model = Entry
+    success_url = '/entries/'
+

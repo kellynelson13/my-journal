@@ -7,5 +7,7 @@ urlpatterns = [
     path('entries/', views.entries_index, name='index'),
     path('entries/<int:entry_id>/', views.entries_detail, name='detail'),
     path('entries/create', views.EntryCreate.as_view(), name='entries_create'),
+    path('entries/<int:pk>/update/', views.EntryUpdate.as_view(), name='entries_update'),
+    path('entries/<int:pk>/delete/', views.EntryDelete.as_view(), name='entries_delete'),
 
 ]

@@ -7,6 +7,10 @@
   <div class="card-content">
     <p>{{ entry.entry }}</p>
   </div>
+  <div class="card-action">
+    <a href="{% url 'entries_update' entry.id %}">Edit</a>
+    <a href="{% url 'entries_delete' entry.id %}">Delete</a>
+  </div>
 </div>
 
 {% endblock %}
