@@ -11,3 +11,12 @@ class Entry(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'entry_id': self.id})
+
+
+class Mood(models.Model):
+    mood = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.mood
+
+    

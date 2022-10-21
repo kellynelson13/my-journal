@@ -1,6 +1,8 @@
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Entry
+from .models import Entry, Mood
 
 
 
@@ -43,4 +45,18 @@ class EntryUpdate(UpdateView):
 class EntryDelete(DeleteView):
     model = Entry
     success_url = '/entries/'
+
+
+class MoodList(ListView):
+    model = Mood
+    template_name = 'moods/index.html'
+
+class MoodDetail(DetailView):
+    model = Mood
+    template_name = 'moods/detail.html'
+
+class MoodCreate(CreateView):
+    model = Mood
+    fields = '__all__'
+    success_url = '/moods/'
 
