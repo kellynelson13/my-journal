@@ -13,4 +13,52 @@
   </div>
 </div>
 
+
+<hr />
+<div class="row">
+  <div class="col s6">
+    <h3>Today I am feeling:</h3>
+    {% if entry.moods.count %} {% for mood in entry.moods.all %}
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">
+          {{mood.mood}}
+        </span>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <h5>No  Specific Moods Today</h5>
+    {% endif %}
+  </div>
+  <!-- Available moods will come after this line -->
+
+
+
+  <div class="col s6">
+    <h3>Available Moods</h3>
+    {% if moods.count %}
+      {% for mood in moods.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              {{mood.mood}}
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'assoc_mood' entry.id mood.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn">Add</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>Feeling all the feels today</h5>
+    {% endif %}
+  </div>
+</div>
+
+
+
+
 {% endblock %}
