@@ -4,10 +4,10 @@
 
 {% for entry in entries %}
 <div class="card">
-  <div class="card-content">
-    <span class="card-title">{{ entry.date }}</span>
-  </div>
+  <a href="{% url 'detail' entry.id %}">
+    <div class="card-content">
+      <span class="card-title">{{ entry.date }}</span>
+    </div>
+  </a>
 </div>
-{% endfor %} 
-
-{% endblock %}
+{% endfor %} {% endblock %}
