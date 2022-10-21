@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Entry
 
 
@@ -29,3 +30,8 @@ def entries_index(request):
 def entries_detail(request, entry_id):
     entry = Entry.objects.get(id=entry_id)
     return render(request, 'entries/detail.html', {'entry': entry})
+
+
+class EntryCreate(CreateView):
+    model = Entry
+    fields = '__all__'
