@@ -12,7 +12,7 @@ urlpatterns = [
     path('moods/', views.MoodList.as_view(), name='moods_index'),
     path('moods/<int:pk>/', views.MoodDetail.as_view(), name='moods_detail'),
     path('moods/create/', views.MoodCreate.as_view(), name='moods_create'),
-    
-
+    path('moods/<int:pk>/update/', views.MoodUpdate.as_view(), name='moods_update'),
+    path('moods/<int:pk>/delete/', views.MoodDelete.as_view(), name='moods_delete'),
 
 ]
