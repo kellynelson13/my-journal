@@ -44,11 +44,11 @@ def assoc_mood(request, entry_id, mood_id):
 
 class EntryCreate(CreateView):
     model = Entry
-    fields = '__all__'
+    fields = ('date', 'entry')
 
 class EntryUpdate(UpdateView):
     model = Entry
-    fields = '__all__'
+    fields = ('date', 'entry')
 
 class EntryDelete(DeleteView):
     model = Entry
