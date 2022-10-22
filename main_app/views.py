@@ -1,5 +1,9 @@
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Entry, Mood, Photo
@@ -30,21 +34,25 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+@login_required
 def entries_index(request):
-    entries = Entry.objects.all()
+    entries = Entry.objects.filter(user=request.user)
     return render(request, 'entries/index.html', { 'entries': entries })
 
+@login_required
 def entries_detail(request, entry_id):
     entry = Entry.objects.get(id=entry_id)
     moods_entry_doesnt_have = Mood.objects.exclude(id__in = entry.moods.all().values_list('id'))
     return render(request, 'entries/detail.html', {'entry': entry, 'moods': moods_entry_doesnt_have})
 
+@login_required
 def assoc_mood(request, entry_id, mood_id):
   # Note that you can pass a mood's id instead of the whole object
   Entry.objects.get(id=entry_id).moods.add(mood_id)
   return redirect('detail', entry_id=entry_id)
 
 
+@login_required
 def add_photo(request, entry_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
@@ -65,40 +73,65 @@ def add_photo(request, entry_id):
     return redirect('detail', entry_id=entry_id)
 
 
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      user = form.save()
+      # This is how we log a user in via code
+      login(request, user)
+      return redirect('index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
 
 
 
-class EntryCreate(CreateView):
+
+
+class EntryCreate(LoginRequiredMixin, CreateView):
     model = Entry
     fields = ('date', 'entry')
 
-class EntryUpdate(UpdateView):
+    def form_valid(self, form):
+    # Assign the logged in user (self.request.user)
+        form.instance.user = self.request.user  # form.instance is the cat
+        return super().form_valid(form)
+
+class EntryUpdate(LoginRequiredMixin, UpdateView):
     model = Entry
     fields = ('date', 'entry')
 
-class EntryDelete(DeleteView):
+class EntryDelete(LoginRequiredMixin, DeleteView):
     model = Entry
     success_url = '/entries/'
 
 
-class MoodList(ListView):
+class MoodList(LoginRequiredMixin, ListView):
     model = Mood
     template_name = 'moods/index.html'
 
-class MoodDetail(DetailView):
+class MoodDetail(LoginRequiredMixin, DetailView):
     model = Mood
     template_name = 'moods/detail.html'
 
-class MoodCreate(CreateView):
+class MoodCreate(LoginRequiredMixin, CreateView):
     model = Mood
     fields = '__all__'
     success_url = '/moods/'
 
-class MoodUpdate(UpdateView):
+class MoodUpdate(LoginRequiredMixin, UpdateView):
     model = Mood
     fields = '__all__'
 
-class MoodDelete(DeleteView):
+class MoodDelete(LoginRequiredMixin, DeleteView):
     model = Mood
     success_url = '/moods/'
 
