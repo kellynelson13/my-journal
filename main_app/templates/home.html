@@ -1,5 +1,18 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
 
-<h1>My Journal</h1>
+{% block head %}
+<style>
+    body {
+        background-color: aqua;
+    }
+    
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<h1 id="myjournal">My Journal</h1>
 
 {% endblock %}
+
