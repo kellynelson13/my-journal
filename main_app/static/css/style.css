@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&family=Judson&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
 
 body {
     display: flex;
@@ -20,9 +21,23 @@ footer {
     color: rgb(8, 8, 37);
 }
 
-#aboutmj {
-    font-family: 'Crafty Girls', cursive;
-    text-align: center;
+.aboutmj {
+    font-weight: 200;
+    font-size: 50px;
+    font-family: 'PT Serif', serif;
+    
+}
+
+.about-img {
+    width: 90%;
+}
+
+li {
+    font-size: 16px;
+}
+
+.works {
+    padding: 3px 15px 10px 15px;
 }
 
   
