@@ -1,19 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
-
-<h1>Moods List</h1>
-<a href="{% url 'moods_create' %}">Add a Mood</a>
-
-{% for mood in object_list %}
-<div class="card">
-    <a href="{% url 'moods_detail' mood.id %}">
-        <div class="card-content">
-            <span class="card-title">{{ mood.mood }}</span>
-        </div>
-    </a>
+<div class="mood-header">
+  <h1 id="moods-list">Moods List</h1>
+  <a class="add-mood" href="{% url 'moods_create' %}">Add a Mood</a>
 </div>
-{% endfor %}
 
+<div class="row">
+  {% for mood in object_list %}
+  <div class="col s3">
+    <div class="card">
+      <a href="{% url 'moods_detail' mood.id %}">
+        <div class="card-content">
+          <span class="card-title">{{ mood.mood }}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
 {% endblock %}
