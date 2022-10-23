@@ -19,7 +19,7 @@
     {% if entry.moods.count %} {% for mood in entry.moods.all %}
     <div class="card">
       <div class="card-content">
-        <span class="card-title"> {{mood.mood}} </span>
+        <span class=" darkliver card-title"> {{mood.mood}} </span>
       </div>
     </div>
     {% endfor %} {% else %}
@@ -36,7 +36,7 @@
 
         <form action="{% url 'assoc_mood' entry.id mood.id %}" method="post">
           {% csrf_token %}
-          <button type="submit" class="button">{{mood.mood}}</button>
+          <button type="submit" class=" teal darken-4 button">{{mood.mood}}</button>
         </form>
 
         {% endfor %}

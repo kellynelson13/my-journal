@@ -63,10 +63,13 @@ footer {
 }
 .button {
     background-color: aqua;
-    padding: 11px;
+    padding: 15px;
     margin: 8px 0;
     border-radius: 15px;
     border: none;
+    font-family: 'Annie Use Your Telescope', cursive;
+    font-size: 20px;
+    color: #f2efe9;
 }
 .button:hover {
     cursor: pointer;
@@ -105,4 +108,8 @@ footer {
 }
 .navb {
     font-size: 25px;
+}
+.darkliver {
+    color: #904e55;
+    font-family: 'Annie Use Your Telescope', cursive;
 }

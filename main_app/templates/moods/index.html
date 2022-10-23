@@ -9,9 +9,9 @@
   {% for mood in object_list %}
   <div class="col s3">
     <div class="card">
-      <a href="{% url 'moods_detail' mood.id %}">
+      <a class="darkliver" href="{% url 'moods_detail' mood.id %}">
         <div class="card-content">
-          <span class="card-title">{{ mood.mood }}</span>
+          <span class=" darkliver card-title">{{ mood.mood }}</span>
         </div>
       </a>
     </div>
