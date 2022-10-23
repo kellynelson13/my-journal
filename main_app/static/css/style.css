@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&family=Judson&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
 
 body {
     display: flex;
@@ -88,4 +89,12 @@ footer {
 .photo-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+#home-title {
+    font-size: 100px;
+    z-index: 1;
+    position: absolute;
+    color: white;
+    margin: 20vh 20vh 20vh 20vh;
+    font-family: 'Homemade Apple', cursive;
 }
