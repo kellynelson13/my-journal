@@ -83,5 +83,9 @@ footer {
     width: 50%;
 }
 .photo {
-    width: 50%;
+    width: 90%;
+}
+.photo-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
