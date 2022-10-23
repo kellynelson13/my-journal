@@ -17,29 +17,29 @@
   <body>
     <header class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper teal darken-4">
           <ul>
             <li>
-              <a href="/" class="left brand-logo">  My Journal</a>
+              <a href="/" class="left cursive brand-logo">  My Journal</a>
             </li>
           </ul>
-          <ul class="right">
-            <li><a href="{% url 'about' %}">About</a></li>
+          <ul class=" cursive right">
+            <li><a class="navb" href="{% url 'about' %}">About</a></li>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'entries_create' %}">Add Entry</a></li>
-            <li><a href="{% url 'index' %}">View All Entries</a></li>
-            <li><a href="{% url 'moods_index' %}">Moods</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            <li><a class="navb" href="{% url 'entries_create' %}">Add Entry</a></li>
+            <li><a class="navb" href="{% url 'index' %}">View All Entries</a></li>
+            <li><a class="navb" href="{% url 'moods_index' %}">Moods</a></li>
+            <li><a class="navb" href="{% url 'logout' %}">Log Out</a></li>
             {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
+            <li><a class="navb" href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a class="navb" href="{% url 'login' %}">Log In</a></li>
             {% endif %}
           </ul>
         </div>
       </nav>
     </header>
     <main class="container">{% block content %} {% endblock %}</main>
-    <footer class="page-footer">
+    <footer class="page-footer teal darken-4">
       <div class="right">
         All Rights Reserved, © 2022 My Journal  
       </div>
