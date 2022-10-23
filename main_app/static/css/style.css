@@ -38,11 +38,16 @@ footer {
 }
 
 .add-mood {
-    padding: 10px;
+    padding: 0px 30px;
     margin: 20px;
     border: solid black 1px;
     display: flex;
     align-items: center;
+    font-size: 50px;
+    border-radius: 70px;
+}
+.add-mood:hover {
+    background-color: aqua;
 }
 /* #moods-list {
     display: inline-block;
@@ -52,4 +57,31 @@ footer {
     display: flex;
     justify-content: space-between;
 
+}
+.button {
+    background-color: aqua;
+    padding: 11px;
+    margin: 8px 0;
+    border-radius: 15px;
+    border: none;
+}
+.button:hover {
+    cursor: pointer;
+    transform: translate(0, -8px);
+}
+.moods-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 30px;
+
+}
+.available {
+    border-left: solid rgb(120, 118, 118) 2px;
+    padding-left: 25px;
+}
+.upload {
+    width: 50%;
+}
+.photo {
+    width: 50%;
 }
