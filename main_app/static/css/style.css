@@ -37,7 +37,12 @@ footer {
 
 
 .works {
-    padding: 3px 15px 10px 15px;
+    padding: -20px 15px 10px 15px;
+    background-color: #904e55;
+    margin-top: 25px;
+}
+.ul {
+    color: #f2efe9;
 }
 
 .add-mood {
