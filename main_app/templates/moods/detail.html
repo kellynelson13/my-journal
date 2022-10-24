@@ -3,10 +3,10 @@
 <h1 class="cursive">Mood</h1>
 
 <div class="card">
-  <div class="card-content">{{mood.mood}}</div>
+  <div class=" detmood cursive card-content">{{mood.mood}}</div>
   <div class="card-action">
-    <a href="{% url 'moods_update' mood.id %}">Edit</a>
-    <a href="{% url 'moods_delete' mood.id %}">Delete</a>
+    <a  class="teal-text text-darken-4" href="{% url 'moods_update' mood.id %}">Edit</a>
+    <a  class="teal-text text-darken-4" href="{% url 'moods_delete' mood.id %}">Delete</a>
   </div>
 </div>
 

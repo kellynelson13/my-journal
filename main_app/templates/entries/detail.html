@@ -4,22 +4,22 @@
 
 <div class="card">
   <div class="card-content">
-    <p>{{ entry.entry }}</p>
+    <p class="cursive entry">{{ entry.entry }}</p>
   </div>
   <div class="card-action">
-    <a href="{% url 'entries_update' entry.id %}">Edit</a>
-    <a href="{% url 'entries_delete' entry.id %}">Delete</a>
+    <a class="teal-text text-darken-4" href="{% url 'entries_update' entry.id %}">Edit</a>
+    <a class="teal-text text-darken-4" href="{% url 'entries_delete' entry.id %}">Delete</a>
   </div>
 </div>
 
 <hr />
 <div class="row">
   <div class="col s6">
-    <h3>Today I am feeling:</h3>
+    <h3 class="cursive">Today I am feeling:</h3>
     {% if entry.moods.count %} {% for mood in entry.moods.all %}
     <div class="card">
       <div class="card-content">
-        <span class=" darkliver card-title"> {{mood.mood}} </span>
+        <span class="darkliver card-title"> {{mood.mood}} </span>
       </div>
     </div>
     {% endfor %} {% else %}
@@ -30,7 +30,7 @@
   <!-- Available moods will come after this line -->
 
   <div class="col s6">
-    <h3 class="available">Available Moods</h3>
+    <h3 class="available cursive">Available Moods:</h3>
         <div class="moods-container">
         {% if moods.count %} {% for mood in moods.all %}
 
@@ -42,18 +42,18 @@
         {% endfor %}
     </div>
     {% else %}
-    <h5>Feeling all the feels today</h5>
+    <h5 class="cursive">Feeling all the feels today</h5>
     {% endif %}
   </div>
 </div>
 
 <div>
-    <h3>Photos From Your Day:</h3>
+    <h3 class="cursive">Photos From Your Day:</h3>
     <div class="photo-container">
   {% for photo in entry.photo_set.all %}
   <img class=" photo responsive-img card-panel" src="{{photo.url}}" />
   {% empty %}
-  <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+  <div class="card-panel teal-text text-darken-4 center-align">No Photos Uploaded</div>
   {% endfor %}
 </div>
   <div class="upload">
@@ -66,7 +66,7 @@
     {% csrf_token %}
     <input type="file" name="photo-file" />
     <br /><br />
-    <input type="submit" class="btn" value="Upload Photo" />
+    <input type="submit" class="button teal darken-4" value="Upload Photo" />
   </form>
 </div>
 </div>
