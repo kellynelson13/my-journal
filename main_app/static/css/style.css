@@ -27,6 +27,7 @@ footer {
 .aboutmj {
     font-weight: 200;
     font-size: 50px;
+    margin-top: 0;
     font-family: 'PT Serif', serif;
     
 }
@@ -34,12 +35,14 @@ footer {
 .about-img {
     width: 90%;
 }
-
+.cordovan {
+    background-color: #904e55;
+}
 
 .works {
     padding: -20px 15px 10px 15px;
     background-color: #904e55;
-    margin-top: 25px;
+    margin: 45px;
 }
 .ul {
     color: #f2efe9;
@@ -114,7 +117,7 @@ footer {
     font-size: 25px;
 }
 .darkliver {
-    color: #904e55;
+    color: #f2efe9;
     font-family: 'Annie Use Your Telescope', cursive;
 }
 .entry {
