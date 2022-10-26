@@ -19,6 +19,7 @@ My Journal is a safe space for users to keep track of their thoughts, feelings, 
 - Postgresql
 - CSS
 - HTML
+- AWS
 - Heroku
 
 # Getting Started
